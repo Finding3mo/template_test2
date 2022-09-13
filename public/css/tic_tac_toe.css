@@ -1,0 +1,159 @@
+@font-face {
+  font-family: "DkCrayonCrumble-ddll.ttf";
+  src: url(../fonts/DkCrayonCrumble-ddll.ttf);
+}
+@font-face {
+  font-family: "TanukiMagic.ttf";
+  src: url(../fonts/TanukiMagic.ttf);
+}
+
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+}
+
+ol,
+ul {
+  padding-left: 30px;
+  list-style: none;
+}
+
+.game {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 640px;
+  height: 373px;
+  background-image: url("../img/blackboard_1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  background: transparent;
+  border-width: 0;
+  border-right: 2px solid;
+  height: 1px;
+  float: left;
+  font-family: "DkCrayonCrumble-ddll.ttf";
+  font-size: 32px;
+  color: #ddd;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
+
+.square:nth-of-type(3n) {
+  border-right: none;
+}
+
+.board-row:nth-of-type(1) .square:nth-of-type(-n + 2) {
+  border-image: linear-gradient(to bottom, transparent, #ddd);
+  border-image-slice: 30%;
+}
+.board-row:nth-of-type(2) .square:nth-of-type(-n + 2) {
+  border-image: linear-gradient(to bottom, #aaa, #ddd, #aaa);
+  border-image-slice: 30%;
+}
+.board-row:nth-of-type(3) .square:nth-of-type(-n + 2) {
+  border-image: linear-gradient(to bottom, #ddd, transparent);
+  border-image-slice: 30%;
+}
+
+.board-row:nth-of-type(-n + 2) {
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to left, transparent, #ddd, transparent);
+  border-image-slice: 1%;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-info * {
+  font-family: "TanukiMagic.ttf";
+}
+
+.moving-button {
+  position: relative;
+  width: 144px;
+  padding: 0.5em;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ddd;
+  transition: 0.4s;
+  border: none;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.5);
+  text-underline-offset: 0.2em;
+  background-color: transparent;
+}
+.moving-button:before {
+  position: absolute;
+  display: inline-block;
+  content: "";
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 3px;
+  background: #ddd;
+  opacity: 0.5;
+  transition: 0.2s;
+}
+.moving-button:after {
+  position: absolute;
+  display: inline-block;
+  content: "";
+  width: 2px;
+  height: 100%;
+  top: 0;
+  left: 100%;
+  border-radius: 3px;
+  background: #ddd;
+  opacity: 0.5;
+  transition: 0.2s;
+}
+.moving-button:hover:before,
+.moving-button:hover:after {
+  transform: rotate(20deg);
+}
+
+.status {
+  font-size: 1.25em;
+  color: #ddd;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
